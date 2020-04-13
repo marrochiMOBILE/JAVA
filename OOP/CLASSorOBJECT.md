@@ -93,3 +93,9 @@ public class ochiG {
 }
 ```
 
+output :
+```java
+55
+```
+
+
