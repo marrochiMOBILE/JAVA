@@ -92,6 +92,7 @@ The car is going as fast as it can!
 Max speed is: 200
 ```
 <hr>
+
 ## Using Multiple Classes
 Seperti yang kami sebutkan di bab Kelas, itu adalah praktik yang baik untuk membuat objek kelas dan mengaksesnya di kelas lain.
 
