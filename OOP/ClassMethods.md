@@ -92,3 +92,38 @@ The car is going as fast as it can!
 Max speed is: 200
 ```
 <hr>
+## Using Multiple Classes
+Seperti yang kami sebutkan di bab Kelas, itu adalah praktik yang baik untuk membuat objek kelas dan mengaksesnya di kelas lain.
+
+Ingat bahwa nama file java harus sesuai dengan nama kelas. Dalam contoh ini, kami telah membuat dua file di direktori yang sama:
+
+1. Car.java
+1. OtherClass.java
+
+#### Car.java
+```java
+public class Car {
+  public void fullThrottle() {
+    System.out.println("The car is going as fast as it can!");
+  }
+
+  public void speed(int maxSpeed) {
+    System.out.println("Max speed is: " + maxSpeed);
+  }
+}
+```
+#### OtherClass.java
+```java
+class OtherClass {
+  public static void main(String[] args) {
+    Car myCar = new Car();     // membuat object
+    myCar.fullThrottle();      // panggil method fullThrottle()
+    myCar.speed(200);          // panggil method speed()
+  }
+}
+```
+output : 
+```
+The car is going as fast as it can!
+Max speed is: 200
+```
