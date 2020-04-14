@@ -191,7 +191,7 @@ abstract class Person {
   public abstract void study(); // abstract method 
 }
 
-// Subclass (inherit from Person)
+// Subclass (inherit from Person) / turunan
 class Student extends Person {
   public int graduationYear = 2018;
   public void study() {
@@ -207,14 +207,14 @@ kemudian buat lagi file di folder yg sama dengan nama MyClass.java
 
 class MyClass {
   public static void main(String[] args) {
-    // create an object of the Student class (which inherits attributes and methods from Person)
+    // membuat object yg bernama myObj dari kelas Student
     Student myObj = new Student(); 
     
     System.out.println("Name: " + myObj.fname + " " + myObj.lname);
     System.out.println("Email: " + myObj.email);
     System.out.println("Age: " + myObj.age);
     System.out.println("Graduation Year: " + myObj.graduationYear);
-    myObj.study(); // call abstract method
+    myObj.study(); // panggil abstract method
   }
 }
 
