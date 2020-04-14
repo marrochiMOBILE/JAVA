@@ -150,7 +150,8 @@ Graduation Year: 2018
 
 ## Non-Access Modifiers
 Untuk kelas, Anda dapat menggunakan final atau abstrak:
-
+### `final` 
+Kelas tidak dapat diwarisi oleh kelas lain
 ```java
 final class Vehicle {
   protected String brand = "Ford";
@@ -176,3 +177,167 @@ class Car extends Vehicle {
                   ^
 1 error
 ```
+### `abstract`
+
+Kelas tidak dapat digunakan untuk membuat objek (Untuk mengakses kelas abstrak, itu harus diwarisi dari kelas lain. Anda akan belajar lebih banyak tentang warisan dan abstraksi di bab Warisan/Inheritance dan Abstraksi). sekarang buat file bernama Person.java dan MyClass.java
+#### Person.java
+```java
+// abstract class
+abstract class Person {
+  public String fname = "John";
+  public String lname = "Doe";
+  public String email = "john@doe.com";
+  public int age = 24;
+  public abstract void study(); // abstract method 
+}
+
+// Subclass (inherit from Person)
+class Student extends Person {
+  public int graduationYear = 2018;
+  public void study() {
+    System.out.println("Studying all day long");
+  }
+}
+
+```
+
+kemudian buat lagi file di folder yg sama dengan nama MyClass.java
+#### MyClass.java
+```java
+
+class MyClass {
+  public static void main(String[] args) {
+    // create an object of the Student class (which inherits attributes and methods from Person)
+    Student myObj = new Student(); 
+    
+    System.out.println("Name: " + myObj.fname + " " + myObj.lname);
+    System.out.println("Email: " + myObj.email);
+    System.out.println("Age: " + myObj.age);
+    System.out.println("Graduation Year: " + myObj.graduationYear);
+    myObj.study(); // call abstract method
+  }
+}
+
+Result:
+Name: John Doe
+Email: john@doe.com
+Age: 24
+Graduation Year: 2018
+Studying all day long
+```
+
+output :
+
+```java
+Name: John Doe
+Email: john@doe.com
+Age: 24
+Graduation Year: 2018
+Studying all day long
+```
+
+<hr>
+
+## method & atributes
+Untuk atribut dan metode, Anda dapat menggunakan salah satu dari yang berikut:
+
+### `Final`
+Jika Anda tidak ingin kemampuan untuk menimpa nilai atribut yang ada, nyatakan atribut sebagai final:
+```java
+MyClass.java 
+
+public class MyClass {
+  final int x = 10;
+  final double PI = 3.14;
+
+  public static void main(String[] args) {
+    MyClass myObj = new MyClass();
+    myObj.x = 50; // ini akan terjadi error karena final nilainya tidak bisa ditimpah
+    myObj.PI = 25; // ini akan terjadi error karena final nilainya tidak bisa ditimpah
+    System.out.println(myObj.x); 
+  }
+}
+
+```
+
+ouput :
+```
+MyClass.java:7: error: cannot assign a value to final variable x
+    myObj.x = 50;
+         ^
+MyClass.java:8: error: cannot assign a value to final variable PI
+    myObj.PI = 25;
+         ^ 2 errors
+```
+### `Static`
+Metode statis berarti dapat diakses tanpa membuat objek kelas, tidak seperti publik:
+```java
+public class MyClass {
+  // Static method
+  static void myStaticMethod() {
+    System.out.println("Static methods can be called without creating objects");
+  }
+
+  // Public method
+  public void myPublicMethod() {
+    System.out.println("Public methods must be called by creating objects");
+  }
+
+  // Main method
+  public static void main(String[] args) {
+    myStaticMethod(); // panggil static method
+
+    MyClass myObj = new MyClass(); // membuat object dari class MyClass
+    myObj.myPublicMethod(); // panggil public method
+  }
+}
+```
+
+output :
+```
+Static methods can be called without creating objects
+Public methods must be called by creating objects
+```
+
+### `Abstract`
+Metode abstrak milik kelas abstrak, dan tidak memiliki tubuh. Tubuh disediakan oleh subclass:
+```java
+// buat file dipolder yg sama dengan nama Person.java
+// abstract class
+abstract class Person {
+  public String fname = "John";
+  public int age = 24;
+  public abstract void study(); // abstract method
+}
+
+// Subclass (inherit from Person)
+class Student extends Person {
+  public int graduationYear = 2018;
+  public void study() { // the body of the abstract method is provided here
+    System.out.println("Studying all day long");
+  }
+}
+// End filename: Person.java
+
+// dan buat lagi difolder yang sama dengan nama MyClass.java
+class MyClass {
+  public static void main(String[] args) {
+    // membuat object dari kelas yg bernama Student
+    Student myObj = new Student();
+
+    System.out.println("Name: " + myObj.fname);
+    System.out.println("Age: " + myObj.age);
+    System.out.println("Graduation Year: " + myObj.graduationYear);
+    myObj.study(); // panggil abstract method
+  }
+}
+```
+
+output :
+```
+Name: John
+Age: 24
+Graduation Year: 2018
+Studying all day long
+```
+
