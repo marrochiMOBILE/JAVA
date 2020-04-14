@@ -218,12 +218,6 @@ class MyClass {
   }
 }
 
-Result:
-Name: John Doe
-Email: john@doe.com
-Age: 24
-Graduation Year: 2018
-Studying all day long
 ```
 
 output :
@@ -310,10 +304,10 @@ abstract class Person {
   public abstract void study(); // abstract method
 }
 
-// Subclass (inherit from Person)
+// Subclass (inherit from Person) /turunan
 class Student extends Person {
   public int graduationYear = 2018;
-  public void study() { // the body of the abstract method is provided here
+  public void study() { // isi dari metode abstrak disediakan di sini
     System.out.println("Studying all day long");
   }
 }
@@ -331,6 +325,7 @@ class MyClass {
     myObj.study(); // panggil abstract method
   }
 }
+// End filename: MyClass.java
 ```
 
 output :
