@@ -30,7 +30,81 @@ public class MyClass {
 
 output:
 ```
+ini hanya sebuah contoh
 2020-04-14
 ```
 
 ## Display Current Time
+Untuk menampilkan waktu saat ini (jam, menit, detik, dan milidetik), impor kelas java.time.LocalTime, dan gunakan metode sekarang ():
+```java
+
+import java.time.LocalTime;  // import class localtime
+
+public class MyClass {  
+  public static void main(String[] args) {  
+    LocalTime myObj = LocalTime.now();
+    System.out.println(myObj);
+  }  
+}  
+
+```
+output:
+```
+ini hanya sebuah contoh
+13:00:47.271838
+```
+## Display Current Date and Time
+
+Untuk menampilkan tanggal dan waktu saat ini, impor kelas java.time.LocalDateTime, dan gunakan metode now ():
+```java
+
+import java.time.LocalDateTime;  // import class LocalDateTime
+
+public class MyClass {  
+  public static void main(String[] args) {  
+    LocalDateTime myObj = LocalDateTime.now();
+    System.out.println(myObj);
+  }  
+}  
+
+```
+
+output:
+```
+ini hanya sebuah contoh
+2020-04-15T13:03:38.041906
+```
+
+## Formatting Date and Time
+"T" pada contoh di atas digunakan untuk memisahkan tanggal dari waktu. Anda bisa menggunakan kelas DateTimeFormatter dengan metode `ofPattern ()` dalam paket yang sama untuk memformat atau mem-parsing objek tanggal-waktu. Contoh berikut akan menghapus "T" dan milidetik dari tanggal-waktu:
+```java
+import java.time.LocalDateTime;  // Import  LocalDateTime class
+import java.time.format.DateTimeFormatter;  // Import  DateTimeFormatter class
+
+public class MyClass {
+  public static void main(String[] args) {  
+    LocalDateTime myDateObj = LocalDateTime.now();  
+    System.out.println("Before formatting: " + myDateObj);  
+    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");  
+    
+    String formattedDate = myDateObj.format(myFormatObj);  
+    System.out.println("After formatting: " + formattedDate);  
+  }  
+}  
+
+```
+
+output:
+```
+ini hanya sebuah contoh
+Before Formatting: 2020-04-15T13:07:03.219735
+After Formatting: 15-04-2020 13:07:03
+```
+
+Metode ofPattern () menerima semua jenis nilai, jika Anda ingin menampilkan tanggal dan waktu dalam format yang berbeda. Sebagai contoh:
+|  value | contoh  |  
+|---|---|
+|  yyyy-MM-dd | 	"1988-09-29"  | 
+| dd/MM/yyyy  |  "29/09/1988" | 
+|  dd-MMM-yyyy | 	"29-Sep-1988"  | 
+|E, MMM dd yyyy|	"Thu, Sep 29 1988" |
