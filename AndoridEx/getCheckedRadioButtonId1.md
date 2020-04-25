@@ -52,6 +52,20 @@ InputNim = (EditText) findViewById(R.id.tomboln);
 
 InputNim.getText().toString();
 ```
+
+## setText()
+untuk memunculkan sebuah teks pada text area atau text field dapat menggunakan fungsi setText().
+
+```java
+// atribut
+EditText InputNim;
+TextView Hasil;
+
+// inialisasi
+InputNim = (EditText) findViewById(R.id.tomboln);
+Hasil.setText("\n" + "hasil input: "+ InputNim.getText().toString() +
+"\n");
+```
 ## getCheckedRadioButtonId
  adalah fungsi yang ada pada Java untuk mengambil teks yang diinput pada form radio button
  ```java
@@ -70,22 +84,7 @@ InputNim.getText().toString();
 // disimpan kedalam variable tapi bukan lagi radio button tapi text
 String inputjk = String.valueOf(jk.getText().toString());
  ```
-
-
-## setText()
-untuk memunculkan sebuah teks pada text area atau text field dapat menggunakan fungsi setText().
-
-```java
-// atribut
-EditText InputNim;
-TextView Hasil;
-
-// inialisasi
-InputNim = (EditText) findViewById(R.id.tomboln);
-Hasil.setText("\n" + "hasil input: "+ InputNim.getText().toString() +
-"\n");
-```
-
+ 
 ## perhatikan 1
 
 #### activity_main.xml
