@@ -52,6 +52,20 @@ InputNim = (EditText) findViewById(R.id.tomboln);
 
 InputNim.getText().toString();
 ```
+
+## setText()
+untuk memunculkan sebuah teks pada text area atau text field dapat menggunakan fungsi setText().
+
+```java
+// atribut
+EditText InputNim;
+TextView Hasil;
+
+// inialisasi
+InputNim = (EditText) findViewById(R.id.tomboln);
+Hasil.setText("\n" + "hasil input: "+ InputNim.getText().toString() +
+"\n");
+```
 ## getCheckedRadioButtonId
  adalah fungsi yang ada pada Java untuk mengambil teks yang diinput pada form radio button
  ```java
@@ -70,23 +84,30 @@ InputNim.getText().toString();
 // disimpan kedalam variable tapi bukan lagi radio button tapi text
 String inputjk = String.valueOf(jk.getText().toString());
  ```
-
-
-## setText()
-untuk memunculkan sebuah teks pada text area atau text field dapat menggunakan fungsi setText().
+ 
+## getSelectedItem
+	
+ Mengembalikan item atau elemen yang dipilih.
 
 ```java
-// atribut
-EditText InputNim;
-TextView Hasil;
+    // attribute
+    TextView thasil;
+    Spinner skelas;
 
-// inialisasi
-InputNim = (EditText) findViewById(R.id.tomboln);
-Hasil.setText("\n" + "hasil input: "+ InputNim.getText().toString() +
-"\n");
+        // inisialisasi
+        thasil = (TextView) findViewById(R.id.hasil);
+        skelas = (Spinner) findViewById(R.id.kelas);
+    
+          // tampilkan dengan setText ke id thasil
+           thasil.setText("\n" +                      
+                 "Kelas\t\t\t\t\t\t\t\t\t\t: " + skelas.getSelectedItem().toString() + "\n" 
+           );
+
+
 ```
-
-## perhatikan 1
+  
+ 
+# perhatikan 1
 
 #### activity_main.xml
 ```xml
@@ -360,8 +381,8 @@ public class MainActivity extends AppCompatActivity {
         bsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // String inputnpm = String.valueOf(enpm.getText().toString());
-               
+                // String inputnpm = String.valueOf(enpm.getText().toString());
+
                 // disimpan dalam varibel nilai dari form yg di input untuk jenis text field
                 String inputnama = String.valueOf(enama.getText().toString());
                 String inputtempatlahir = String.valueOf(etempatlahir.getText().toString());
@@ -369,23 +390,23 @@ public class MainActivity extends AppCompatActivity {
                 String inputTugas = String.valueOf(etTugas.getText().toString());
                 String inputUTS = String.valueOf(etUTS.getText().toString());
                 String inputUAS = String.valueOf(etUAS.getText().toString());
-                
+
                 // disimpan dalam varibel nilai dari form yg di input untuk jenis radio button
-                int gender = rgjk.getCheckedRadioButtonId();
-                
+                int gender = rgjk.getCheckedRadioButtonId(); // disini data akan ditangkap nilai integer contoh 1,2,...
+
                 // iniliasisasi untuk radio button group yg dipilih
                 RadioButton jk = (RadioButton) findViewById(gender);
-                
-                // disimpan kedalam variabel 
+
+                // disimpan kedalam variabel
                 String inputjk = String.valueOf(jk.getText().toString());
-                
+
                 //perhitungan total nilai, rata-rata,  grade
                 int totalNilai = Integer.parseInt(inputTugas) + Integer.parseInt(inputUTS) + Integer.parseInt(inputUAS) ;
                 int NilairataRata = (Integer.parseInt(inputTugas) + Integer.parseInt(inputUTS) + Integer.parseInt(inputUAS))/3 ;
-                
+
                 // sengaja diisi null atau '' biar tidak error
                 String gradeNilai = null;
-                
+
                 // validation jika
                 if(NilairataRata >= 80 && NilairataRata <= 100){
                     gradeNilai = "A";
@@ -398,11 +419,11 @@ public class MainActivity extends AppCompatActivity {
                 }else if(NilairataRata >= 0 && NilairataRata <= 49){
                     gradeNilai = "E";
                 }
-                
+
                 // tampilkan dengan setText ke id thasil
                 thasil.setText("\n" + "NPM\t\t\t\t\t\t\t\t\t\t: " + enpm.getText().toString() + "\n" +
                         "Nama\t\t\t\t\t\t\t\t\t\t: " + inputnama + "\n" +
-                        "Jenis Kelamin\t\t\t\t\t: " + inputjk + "\n" +
+                        "Jenis Kelamin\t\t\t\t\t: " + inputjk +"(  " + gender +"    )"+ "\n" +
                         "Kelas\t\t\t\t\t\t\t\t\t\t: " + skelas.getSelectedItem().toString() + "\n" +
                         "Agama\t\t\t\t\t\t\t\t\t: " + sagama.getSelectedItem().toString() + "\n" +
                         "Jenis Kelamin\t\t\t\t\t: " + inputtempatlahir + "\n" +
