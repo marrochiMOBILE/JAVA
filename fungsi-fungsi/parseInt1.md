@@ -27,3 +27,27 @@ contoh program dibawah ini :
       System.out.println(c);
       System.out.println(b);
 ```
+
+contoh dialam android :
+```java
+// disimpan dalam varibel nilai dari form yg di input untuk jenis text field
+                String inputnama = String.valueOf(enama.getText().toString());
+                String inputtempatlahir = String.valueOf(etempatlahir.getText().toString());
+                String inputtanggallahir = String.valueOf(etanggallahir.getText().toString());
+                String inputTugas = String.valueOf(etTugas.getText().toString());
+                String inputUTS = String.valueOf(etUTS.getText().toString());
+                String inputUAS = String.valueOf(etUAS.getText().toString());
+
+                // disimpan dalam varibel nilai dari form yg di input untuk jenis radio button
+                int gender = rgjk.getCheckedRadioButtonId(); // disini data akan ditangkap nilai integer contoh 1,2,...
+
+                // iniliasisasi untuk radio button group yg dipilih
+                RadioButton jk = (RadioButton) findViewById(gender);
+
+                // disimpan kedalam variabel
+                String inputjk = String.valueOf(jk.getText().toString());
+
+                //perhitungan total nilai, rata-rata,  grade
+                int totalNilai = Integer.parseInt(inputTugas) + Integer.parseInt(inputUTS) + Integer.parseInt(inputUAS) ;
+                int NilairataRata = (Integer.parseInt(inputTugas) + Integer.parseInt(inputUTS) + Integer.parseInt(inputUAS))/3 ;
+```
